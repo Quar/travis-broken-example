@@ -3,6 +3,8 @@
 An example of using Travis CI with Python Project
   * unittest discover
   * docker imaged conda
+  * mysql
+    - pymysql
 
 TODO: 
   * mysql
