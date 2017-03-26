@@ -4,3 +4,6 @@ channels:
 dependencies:
     - numpy
     - mysql
+    - pymysql
+    - pyyaml
+    - pandas
