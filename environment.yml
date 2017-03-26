@@ -3,3 +3,4 @@ channels:
   - https://conda.binstar.org/conda-forge
 dependencies:
     - numpy
+    - mysql

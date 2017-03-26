@@ -7,3 +7,4 @@ An example of using Travis CI with Python Project
 TODO: 
   * mysql
     - mysql-connector-python
+    - sqlalchemy
