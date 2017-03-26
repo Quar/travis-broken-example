@@ -21,7 +21,5 @@ RUN /root/miniconda/bin/conda-env update --name root --file /root/environment.ym
 
 COPY ./ /root/
 
-RUN apt-get install --yes python3-pymysql
-
 #RUN /bin/bash -c 'source activate test_env; python3 /root/test/package_test.py'
 #RUN /bin/bash -c 'python3 /root/test/package_test.py'

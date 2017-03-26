@@ -3,10 +3,9 @@ import numpy as np
 from simplepy import mysql
 import os
 
-CONFIG_FILE = "./test_config.yml"
-cwd = os.path.basename(os.path.dirname(os.path.realpath(__file__)))
-cfg_file = os.path.join(cwd, CONFIG_FILE)
-
+CONFIG_FILE = "test_config.yml"
+cwd = os.path.abspath(os.path.dirname(os.path.abspath(__file__)))
+cfg_file = os.path.abspath(os.path.join(cwd, CONFIG_FILE))
 
 class TestPackage(unittest.TestCase):
 
@@ -17,6 +16,7 @@ class TestPackage(unittest.TestCase):
         self.assertEqual(res, RES)
 
     def test_mysql(self):
+        print(__file__)
         conn = mysql.get_conn(cfg_file)
         qry = """SELECT 2 + 3"""
         RES = pd.DataFrame({"SELECT 2 + 3":[5]})
