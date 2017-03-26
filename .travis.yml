@@ -13,5 +13,5 @@ before_script:
   - docker run my-test-qt
 
 script:
-  - python3 -m unittest discover -s test -p "*_test.py"
   - mysql -h localhost -u travis <<<'SELECT 2+3;'
+  - python3 -m unittest discover -s test -p "*_test.py"
