@@ -15,4 +15,4 @@ before_script:
 
 script:
   - mysql -h localhost -u travis <<<'SELECT 2+3;'
-  - python3 -m unittest discover -t /root -s . "*_test.py"
+  - python3 -m unittest discover -t /root -s . -p "*_test.py"
