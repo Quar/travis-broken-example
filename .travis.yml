@@ -1,6 +1,13 @@
+sudo: required
+
+services:
+  - docker
+
 language: python
 
 python:
   - 3.6
 
-script: python3 -m unittest discover -s test -p "*_test.py"
+#script: python3 -m unittest discover -s test -p "*_test.py"
+script:
+  - docker build -t my-test-qt .
