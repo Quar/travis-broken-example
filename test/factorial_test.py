@@ -1,5 +1,5 @@
 import unittest
-from factorial import fact
+from simplepy.factorial import *
 
 class TestFactorial(unittest.TestCase):
     def test_fact(self):
