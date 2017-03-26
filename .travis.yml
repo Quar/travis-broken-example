@@ -8,6 +8,9 @@ language: python
 python:
   - 3.6
 
-#script: python3 -m unittest discover -s test -p "*_test.py"
-script:
+before_script:
   - docker build -t my-test-qt .
+  - docker run my-test-qt
+
+script:
+  - python3 -m unittest discover -s test -p "*_test.py"
