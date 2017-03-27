@@ -13,16 +13,15 @@ RUN apt-get update && \
 # install conda
 RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh && \
     bash miniconda.sh -b -p /root/miniconda && \
-    rm miniconda.sh
-
-ENV PATH="/root/miniconda/bin:$PATH"
-
-RUN conda config --set always_yes True --set changeps1 no && \
-    conda info -a
+    rm miniconda.sh &&\
+    /root/miniconda/bin/conda config --set always_yes True --set changeps1 no && \
+    /root/miniconda/bin/conda info -a
 
 COPY ./environment.yml $HOME/environment.yml
 
-RUN conda env create --name testenv --file environment.yml
+ENV PATH="/root/miniconda/bin:$PATH"
+
+RUN /root/miniconda/bin/conda env create --name testenv --file environment.yml
 
 ENV PATH="/root/miniconda/envs/testenv/bin:$PATH"
 

@@ -3,10 +3,6 @@ sudo: required
 services:
   - docker
 
-cache:
-  directories:
-    - docker
-
 language: python
 
 python:
@@ -15,9 +11,11 @@ python:
 install: # replaced by docker image with conda
 
 before_script:
-  - docker build -t my-test-qt .
-  - docker run -it my-test-qt /bin/bash
+  - docker build -t testenv .
+
+env:
+  - RUN="docker run -it testenv"
 
 script:
-  - mysql -h localhost -u travis <<<'SELECT 2+3;'
-  - python3 -m unittest discover -s test -p "*_test.py"
+  - $RUN mysql -h localhost -u travis <<<'SELECT 2+3;'
+  - $RUN python3 -m unittest discover -s test -p "*_test.py"

@@ -1,4 +1,3 @@
-import pymysql
 import pymysql.cursors
 import yaml
 import pandas as pd
