@@ -27,5 +27,7 @@ ENV PATH="/root/miniconda/envs/testenv/bin:$PATH"
 
 COPY . /$HOME/app
 
+WORKDIR /$HOME/app
+
 # in-place check for env setup
 #RUN /bin/bash -c 'python3 -c "import pymysql"'
