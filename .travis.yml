@@ -12,12 +12,11 @@ language: python
 python:
   - 3.6
 
-install:
-  - source activate testenv
+install: # replaced by docker image with conda
 
 before_script:
   - docker build -t my-test-qt .
-  - docker run my-test-qt python3 -c "import pymysql"
+  - docker run -it my-test-qt /bin/bash
 
 script:
   - mysql -h localhost -u travis <<<'SELECT 2+3;'
