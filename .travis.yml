@@ -14,7 +14,7 @@ before_script:
   - docker build -t testenv .
 
 env:
-  - RUN="docker run -it testenv"
+  - RUN="docker run testenv"
 
 script:
   - $RUN mysql -h localhost -u travis <<<'SELECT 2+3;'
