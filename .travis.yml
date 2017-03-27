@@ -17,8 +17,7 @@ install:
 
 before_script:
   - docker build -t my-test-qt .
-  - docker run my-test-qt
-  - python3 -c "import pymysql"
+  - docker run my-test-qt python3 -c "import pymysql"
 
 script:
   - mysql -h localhost -u travis <<<'SELECT 2+3;'
