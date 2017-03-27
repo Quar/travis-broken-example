@@ -2,6 +2,7 @@ sudo: required
 
 services:
   - docker
+  - mysql
 
 language: python
 
@@ -17,5 +18,5 @@ env:
   - RUN="docker run testenv"
 
 script:
-  - $RUN mysql -h localhost -u travis <<<'SELECT 2+3;'
-  - $RUN python3 -m unittest discover -s test -p "*_test.py"
+  - docker run testenv mysql -h localhost -u travis <<<'SELECT 2+3;'
+  - docker run testenv python3 -m unittest discover -s test -p "*_test.py"
