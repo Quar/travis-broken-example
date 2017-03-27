@@ -16,10 +16,10 @@ ENV PATH "/root/miniconda/bin:$PATH"
 
 # Config conda Environment, note it would be easy to update to root env
 COPY ./environment.yml /root/environment.yml
-#RUN /root/miniconda/bin/conda env create --file /root/environment.yml --name test_env
-RUN /root/miniconda/bin/conda-env update --name root --file /root/environment.yml
+RUN /root/miniconda/bin/conda env create --name test_env --file /root/environment.yml
+#RUN /root/miniconda/bin/conda-env update --name root --file /root/environment.yml
 
 COPY ./ /root/
 
-#RUN /bin/bash -c 'source activate test_env; python3 /root/test/package_test.py'
+#RUN /bin/bash -c 'python3 /root/test/package_test.py'
 #RUN /bin/bash -c 'python3 /root/test/package_test.py'
