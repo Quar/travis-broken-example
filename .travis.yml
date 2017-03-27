@@ -13,14 +13,11 @@ python:
   - 3.6
 
 install:
-  - conda env create --name test_env --file environment.yml
-  - source activate test-env
-  - python setup.py install
+  - source activate testenv
 
 before_script:
   - docker build -t my-test-qt .
   - docker run my-test-qt
-  - source activate test_env
   - python3 -c "import pymysql"
 
 script:
