@@ -7,6 +7,7 @@ default_cfg = {'cursorclass':pymysql.cursors.DictCursor}
 def read_config(cfg_file):
     with open(cfg_file) as f:
         cfg = yaml.load(f)['mysql']
+    return cfg
 
 def get_conn(cfg_file):
     user_cfg = read_config(cfg_file)
@@ -16,5 +17,5 @@ def get_conn(cfg_file):
 def query(conn, query):
     with conn.cursor() as cursor:
         cursor.execute(query)
-        result = cursor.fectchall()
+        result = cursor.fetchall()
         return pd.DataFrame(result)
